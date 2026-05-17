@@ -1,9 +1,18 @@
 import re
 import string
+import nltk
 
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import PorterStemmer
+
+
+# =========================================================
+# DOWNLOAD NLTK RESOURCES
+# =========================================================
+
+nltk.download("stopwords")
+nltk.download("punkt")
 
 
 # =========================================================
