@@ -33,11 +33,11 @@ st.caption(
 # API ENDPOINTS
 # =========================================================
 
-HEALTH_API = "https://email-threat-intelligence.onrender.com/health"
+HEALTH_API = "https://email-threat-intelligence-app-3.onrender.com/health"
 
-METRICS_API = "https://email-threat-intelligence.onrender.com/monitoring/metrics"
+METRICS_API = "https://email-threat-intelligence-app-3.onrender.com/monitoring/metrics"
 
-DRIFT_API = "https://email-threat-intelligence.onrender.com/monitoring/drift"
+DRIFT_API = "https://email-threat-intelligence-app-3.onrender.com/monitoring/drift"
 
 
 # =========================================================

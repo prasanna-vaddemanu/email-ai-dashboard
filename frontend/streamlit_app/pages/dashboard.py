@@ -33,7 +33,7 @@ st.markdown(
 # API URL
 # =========================================================
 
-API_URL = "https://email-threat-intelligence.onrender.com/predict"
+API_URL = "https://email-threat-intelligence-app-3.onrender.com/predict"
 
 
 # =========================================================
