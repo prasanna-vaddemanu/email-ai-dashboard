@@ -64,15 +64,38 @@ if st.button("Analyze Email"):
     # API REQUEST
     # =====================================================
 
-    response = requests.post(
+    try:
 
-        API_URL,
+        response = requests.post(
 
-        json=payload
-    )
+            API_URL,
+
+            json=payload,
+
+            timeout=60
+        )
 
 
-    result = response.json()
+        if response.status_code == 200:
+
+            result = response.json()
+
+        else:
+
+            st.error(
+                f"API Error: {response.status_code}"
+            )
+
+            st.stop()
+
+
+    except Exception as e:
+
+        st.error(
+            f"Connection Error: {str(e)}"
+        )
+
+        st.stop()
 
 
     # =====================================================

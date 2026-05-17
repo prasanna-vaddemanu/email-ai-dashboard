@@ -45,10 +45,6 @@ API_URL = "https://email-threat-intelligence-app-3.onrender.com/predict"
 
 if uploaded_file is not None:
 
-    # =====================================================
-    # READ FILE CONTENT
-    # =====================================================
-
     email_content = uploaded_file.read().decode(
 
         "utf-8",
@@ -56,10 +52,6 @@ if uploaded_file is not None:
         errors="ignore"
     )
 
-
-    # =====================================================
-    # SHOW RAW EMAIL
-    # =====================================================
 
     st.markdown("---")
 
@@ -77,10 +69,6 @@ if uploaded_file is not None:
     )
 
 
-    # =====================================================
-    # ANALYZE BUTTON
-    # =====================================================
-
     if st.button("Analyze Uploaded Email"):
 
         payload = {
@@ -93,15 +81,38 @@ if uploaded_file is not None:
         # API REQUEST
         # =================================================
 
-        response = requests.post(
+        try:
 
-            API_URL,
+            response = requests.post(
 
-            json=payload
-        )
+                API_URL,
+
+                json=payload,
+
+                timeout=60
+            )
 
 
-        result = response.json()
+            if response.status_code == 200:
+
+                result = response.json()
+
+            else:
+
+                st.error(
+                    f"API Error: {response.status_code}"
+                )
+
+                st.stop()
+
+
+        except Exception as e:
+
+            st.error(
+                f"Connection Error: {str(e)}"
+            )
+
+            st.stop()
 
 
         # =================================================
@@ -226,9 +237,9 @@ if uploaded_file is not None:
             )
 
 
-        # =====================================================
+        # =================================================
         # THREAT SCORE BREAKDOWN
-        # =====================================================
+        # =================================================
 
         st.markdown("---")
 
