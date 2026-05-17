@@ -13,7 +13,7 @@ from nltk.stem import PorterStemmer
 
 nltk.download("stopwords")
 nltk.download("punkt")
-
+nltk.download("punkt_tab")
 
 # =========================================================
 # NLP TOOLS
